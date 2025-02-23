@@ -1,0 +1,72 @@
+import React, { useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const ResponsiveMenu = ({ open, setOpen, direction = "scale", menuButtonRef }) => {
+  const menuRef = useRef(null);
+
+  // Close menu when clicking outside
+  const handleClickOutside = (e) => {
+    if (
+      menuRef.current && !menuRef.current.contains(e.target) &&
+      menuButtonRef.current && !menuButtonRef.current.contains(e.target)
+    ) {
+      setOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
+  // Function for smooth scrolling
+  const handleScroll = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setOpen(false); // Close menu after clicking
+    }
+  };
+
+  // Define animation variants
+  const menuVariants = {
+    top: { initial: { y: -100, opacity: 0 }, animate: { y: 0, opacity: 1 }, exit: { y: -100, opacity: 0 } },
+    bottom: { initial: { y: 100, opacity: 0 }, animate: { y: 0, opacity: 1 }, exit: { y: 100, opacity: 0 } },
+    left: { initial: { x: -100, opacity: 0 }, animate: { x: 0, opacity: 1 }, exit: { x: -100, opacity: 0 } },
+    right: { initial: { x: 100, opacity: 0 }, animate: { x: 0, opacity: 1 }, exit: { x: 100, opacity: 0 } },
+    scale: { initial: { scale: 0.5, opacity: 0 }, animate: { scale: 1, opacity: 1 }, exit: { scale: 0.5, opacity: 0 } },
+  };
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={menuVariants[direction].initial}
+          animate={menuVariants[direction].animate}
+          exit={menuVariants[direction].exit}
+          transition={{ duration: 0.3 }}
+          className="absolute top-20 left-0 w-full h-screen z-20"
+        >
+          <div
+            ref={menuRef}
+            className="text-xl font-semibold uppercase bg-blue-500 text-white py-10 m-6 rounded-3xl"
+          >
+            <ul className="flex flex-col items-center gap-6">
+              <li><a href="#home" onClick={() => handleScroll("home")}>Home</a></li>
+              <li><a href="#about" onClick={() => handleScroll("about")}>About Us</a></li>
+              <li><a href="#service" onClick={() => handleScroll("service")}>Service</a></li>
+              <li><a href="#team" onClick={() => handleScroll("team")}>Our Team</a></li>
+              <li><a href="#events" onClick={() => handleScroll("events")}>Events</a></li>
+            </ul>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default ResponsiveMenu;

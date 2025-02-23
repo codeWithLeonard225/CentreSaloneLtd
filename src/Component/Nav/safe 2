@@ -1,0 +1,73 @@
+import { useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-scroll";
+
+const ResponsiveMenu = ({ open, setOpen, menuButtonRef }) => {
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-16 left-0 w-full h-screen  z-50 flex flex-col items-center pt-10 shadow-lg"
+        >
+          <div ref={menuRef} className="w-full max-w-md bg-blue-500 text-white text-center py-10 rounded-lg">
+            <ul className="flex flex-col gap-6 text-xl font-semibold uppercase">
+              <li>
+                <Link to="home" smooth={true} duration={500} onClick={() => setOpen(false)}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="about" smooth={true} duration={500} onClick={() => setOpen(false)}>
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="service" smooth={true} duration={500} onClick={() => setOpen(false)}>
+                  Service
+                </Link>
+              </li>
+              <li>
+                <Link to="team" smooth={true} duration={500} onClick={() => setOpen(false)}>
+                  Our Team
+                </Link>
+              </li>
+              <li>
+                <Link to="events" smooth={true} duration={500} onClick={() => setOpen(false)}>
+                  Events
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default ResponsiveMenu;
