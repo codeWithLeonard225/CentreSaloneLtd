@@ -37,10 +37,10 @@ function Team() {
           className="w-full"
         >
           {[
-            { img: img, name: "Elder Zack", position: "CEO" },
-            { img: img2, name: "Michael Brown", position: "Corporate Law" },
-            { img: img3, name: "Vic", position: "Criminal Law" },
-            { img: img4, name: "Emily Davis", position: "Family Law" },
+            { img: img, name: "Foday fuad kamara ", position: "CEO" },
+            { img: img2, name: "Name", position: "Manager" },
+            { img: img3, name: "Vicoria M Moriba", position: " Marketing" },
+            { img: img4, name: "Abass Conteh", position: "Member" },
           ].map((member, index) => (
             <SwiperSlide
               key={index}
