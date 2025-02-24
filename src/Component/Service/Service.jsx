@@ -55,7 +55,7 @@ const services = [
 
 export default function Service() {
     return (
-      <section className="bg-gray-100 py-24 px-4 w-full overflow-hidden"> {/* Ensure no horizontal scrolling */}
+      <section className="bg-gray-300 py-24 px-4 w-full overflow-hidden"> {/* Ensure no horizontal scrolling */}
         <div className="container mx-auto px-4 max-w-[1200px]"> {/* Limits max width */}
           {/* Section Heading */}
           <motion.h1
@@ -68,7 +68,7 @@ export default function Service() {
           </motion.h1>
   
           {/* Intro Text */}
-          <p className="text-center md:px-6 text-gray-700 leading-relaxed">
+          <p className="text-left md:px-6 text-gray-700 leading-relaxed">
             At <strong>CENTRE SALONE LTD</strong>, we empower individuals and
             businesses through technology, education, and innovation. Our services
             range from software development to business support and digital skills
