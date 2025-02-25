@@ -3,9 +3,16 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import img from "../../assets/CEO.jpeg";
-import img2 from "../../assets/It.jpeg";
+import img2 from "../../assets/Mohamed Ishmael Fofanah.jpeg";
 import img3 from "../../assets/vic.jpeg";
 import img4 from "../../assets/person.jpeg";
+import img5 from "../../assets/Alfred Issa Fofanah.jpeg"
+import img6 from "../../assets/Mamusu Fofanah.jpeg"
+import img7 from "../../assets/ALLIEU JALLOH.jpeg"
+import img8 from "../../assets/Alpha M. Kanu.jpeg"
+import img9 from "../../assets/Annif Ishmael Bangura.jpeg"
+import img10 from "../../assets/Dan Saidu Vandi Botama.jpeg"
+import img11 from "../../assets/Hawa Kuyateh.jpeg"
 
 // Import Swiper styles
 import "swiper/css";
@@ -38,9 +45,16 @@ function Team() {
         >
           {[
             { img: img, name: "Foday fuad kamara ", position: "CEO" },
-            { img: img2, name: "Name", position: "Manager" },
+            { img: img2, name: "Mohamed Ishmael Fofanah", position: "Managing Director" },
             { img: img3, name: "Vicoria M Moriba", position: " Marketing" },
+            { img: img10, name: "Dan Saidu Vandi Botama", position: "Secretary General" },
+            { img: img5, name: "Alfred Issa Fofanah", position: "Project Manager" },
+            { img: img6, name: "Mamusu Fofanah", position: "Directorate of community development and social impact." },
             { img: img4, name: "Abass Conteh", position: "Member" },
+            { img: img7, name: "ALLIEU JALLOH", position: "Member" },
+            { img: img8, name: "Alpha M. Kanu", position: "Member" },
+            { img: img9, name: "Annif Ishmael Bangura", position: "Member" },
+            { img: img11, name: "Hawa Kuyateh", position: "Member" },
           ].map((member, index) => (
             <SwiperSlide
               key={index}
