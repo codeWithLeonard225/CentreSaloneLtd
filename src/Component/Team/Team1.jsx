@@ -46,14 +46,14 @@ function Team() {
           {[
             { img: img, name: "Foday fuad kamara ", position: "CEO" },
             { img: img2, name: "Mohamed Ishmael Fofanah", position: "Managing Director" },
-            { img: img3, name: "Vicoria M Moriba", position: " Marketing" },
+            { img: img3, name: "Vicoria M Moriba", position: " Marketer" },
             { img: img10, name: "Dan Saidu Vandi Botama", position: "Secretary General" },
             { img: img5, name: "Alfred Issa Fofanah", position: "Project Manager" },
             { img: img6, name: "Mamusu Fofanah", position: "Directorate of community development and social impact." },
+            { img: img9, name: "Annif Ishmael Bangura", position: "Projects Manager Under Creative Arts & Media" },
             { img: img4, name: "Abass Conteh", position: "Member" },
             { img: img7, name: "ALLIEU JALLOH", position: "Member" },
             { img: img8, name: "Alpha M. Kanu", position: "Member" },
-            { img: img9, name: "Annif Ishmael Bangura", position: "Member" },
             { img: img11, name: "Hawa Kuyateh", position: "Member" },
           ].map((member, index) => (
             <SwiperSlide
